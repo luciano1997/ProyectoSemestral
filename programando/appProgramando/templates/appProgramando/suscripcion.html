@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="es">
 
@@ -18,16 +19,16 @@
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="../css/flexboxgrid.css">
-    <link rel="stylesheet" href="../CSS/suscripcion.css">
-    <link rel="stylesheet" href="/CSS/social-bar.css">
+    <link rel="stylesheet" href="{% static '/css/flexboxgrid.css' %}">
+    <link rel="stylesheet" href="{% static '/css/suscripcion.css' %}">
+    <link rel="stylesheet" href="{% static '/css/social-bar.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/35796eb248.js"></script>
     <title>Formulario</title>
 </head>
 
 <body>
-    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="{% static '/CSS/index.css' %}">
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
@@ -35,7 +36,7 @@
     <div class="header" style="background: #2C3E50">
         <div class="center-xs logo">
 
-            <img class="img-fluid" src="/IMG/index/logo.png" alt="logo">
+            <img class="img-fluid" src="{% static '/img/index/logo.png' %}" alt="logo">
             <!-- <h1 id="nombre-pag">Programan<b>2</b></h1> -->
 
         </div>
@@ -154,7 +155,7 @@
     <hr>
     <div class="container center-xs" id="div-footer-prog">
 
-        <img id="footer-tecnologias" src="/IMG/index/footer-tecnologias.png" alt="lenguajes de programacion" class="img-fluid">
+        <img id="footer-tecnologias" src="{% static '/img/index/footer-tecnologias.png' %}" alt="lenguajes de programacion" class="img-fluid">
 
     </div>
 
@@ -230,15 +231,15 @@
     </footer>
 
 
-    <script src="../JS/regiones.js">
+    <script src="{% static '/JS/regiones.js' %}">
     </script>
-    <script src="../JS/validarut.js">
+    <script src="{% static '/JS/validarut.js' %}">
     </script>
-    <script src="../JS/validador.js">
+    <script src="{% static '/JS/validador.js' %}">
     </script>
-    <script src="../JS/sololetras.js">
+    <script src="{% static '/JS/sololetras.js' %}">
     </script>
-    <script src="../JS/solonumeros.js">
+    <script src="{% static '/JS/solonumeros.js' %}">
     </script>
 
     <script>

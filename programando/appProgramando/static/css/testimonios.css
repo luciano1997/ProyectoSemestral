@@ -165,49 +165,49 @@
 }
 
 .card2 {
-    background-image: url("/static/img/Alumno2-compressor.jpg");
+    background: url("/static/img/Alumno2-compressor.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .card3 {
-    background-image: url("/static/img/alumnos/Alumno3-compressor.jpg");
+    background: url("/static/img/Alumno3-compressor.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .card4 {
-    background-image: url("/static/img/alumnos/Alumno4-compressor.jpg");
+    background: url("/static/img/Alumno4-compressor.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .card5 {
-    background-image: url("/static/img/alumnos/Alumno5-compressor.jpg");
+    background: url("/static/img/Alumno5-compressor.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .card6 {
-    background-image: url("/static/img/alumnos/Alumno6-compressor.jpg");
+    background: url("/static/img/Alumno6-compressor.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .card7 {
-    background-image: url("/static/img/alumnos/Alumno7-compressor.jpg");
+    background: url("/static/img/Alumno7-compressor.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .card8 {
-    background-image: url("/static/img/alumnos/Alumno8-compressor.jpg");
+    background: url("/static/img/Alumno8-compressor.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .card9 {
-    background-image: url("/static/img/alumnos/Alumno9-compressor.jpg");
+    background: url("/static/img/Alumno9-compressor.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
