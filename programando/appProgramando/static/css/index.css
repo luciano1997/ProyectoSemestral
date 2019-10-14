@@ -1,0 +1,181 @@
+/* div header */
+
+.header {
+    background: #2C3E50;
+    width: 100%;
+    padding: 20px;
+    /* Flexbox */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-flow: column;
+}
+
+
+/*
+.header .logo img {
+    width: 50px;
+    vertical-align: top;
+}
+*/
+
+
+/*Nombre de la pag "logo" */
+
+.header .logo #nombre-pag {
+    color: #fff;
+    text-decoration: none;
+    line-height: 50px;
+    font-family: Homer Simpson, cursive
+}
+
+
+/*Galeria*/
+
+.btn-dark {
+    padding-bottom: 15px;
+}
+
+
+/* footer completo */
+
+footer {
+    background: #2c3e50;
+    width: 100%;
+}
+
+
+/* div principal del footer */
+
+#footer {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+
+.contact {
+    justify-content: start;
+}
+
+.contacto {
+    text-decoration: none;
+    color: #fff;
+}
+
+#footer hr {
+    display: none;
+}
+
+
+/* div redes sociales footer*/
+
+#cursos {
+    display: flex;
+    flex-flow: column;
+    justify-content: start;
+    padding-left: 10px;
+}
+
+#redes-sociales {
+    display: flex;
+    flex-flow: column;
+    justify-content: start;
+    padding-left: 10px;
+}
+
+.div-central {
+    background: red;
+}
+
+#galeria {
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 1500px;
+    column-count: 3;
+    column-span: all;
+    column-rule: 1px solid #bbb;
+    break-inside: avoid-page;
+}
+
+article {
+    background: whitesmoke;
+    break-inside: avoid;
+}
+
+.headerr {
+    column-span: all;
+}
+
+#cont-info {
+    height: 200px;
+}
+
+.navegacion {
+    display: flex;
+    flex-flow: column;
+    font-size: 25px;
+}
+
+#footer-tecnologias {
+    width: 100%;
+    background: url("{% static '/IMG/fondo-programador.jpg' %}")
+}
+
+#footer-tecnologias img {
+    width: 100%;
+}
+
+#div-footer-prog {
+    width: 100%;
+}
+
+#fot-contacto {
+    display: flex;
+    flex-flow: column;
+}
+
+#fot-redes {
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+}
+
+
+/* Móviles en vertical */
+
+@media (max-width: 600px) {
+    #galeria {
+        columns: 2;
+    }
+    #navegador {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #galeria {
+        columns: 1;
+    }
+    header {
+        flex-direction: column;
+        padding: 0;
+    }
+    .carousel-inner {
+        height: 170px;
+    }
+    #footer {
+        flex-direction: column;
+        flex-flow: column;
+    }
+    .contact {
+        justify-content: center;
+    }
+    #fot-contacto {
+        padding-left: 10px;
+    }
+    #cursos a {
+        justify-content: flex-start;
+    }
+}

@@ -11,7 +11,7 @@ class Usuario(models.Model):
     region = models.CharField(max_length=70)
     comuna = models.CharField(max_length=50)
     fechaNacimiento = models.DateField()
-    tipo_vivienda = models.CharField(max_length=50)
+    tipoVivienda = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nombreCompleto

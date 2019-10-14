@@ -1,0 +1,307 @@
+/*Header*/
+
+
+/* div header */
+
+.header {
+    background: #2C3E50;
+    width: 100%;
+    padding: 20px;
+    /* Flexbox */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    flex-flow: column;
+}
+
+
+/*Nombre de la pag "logo" */
+
+.header .logo #nombre-pag {
+    color: #fff;
+    text-decoration: none;
+    line-height: 50px;
+    font-family: Homer Simpson, cursive
+}
+
+.headerr {
+    column-span: all;
+}
+
+
+/*Efecto Tarjeta*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrap {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    columns: 2;
+}
+
+.tarjeta-wrap {
+    margin: 10px;
+    -webkit-perspective: 800;
+    perspective: 800;
+}
+
+.tarjeta {
+    width: 300px;
+    height: 350px;
+    /*background-color: #007BFF;*/
+    position: relative;
+    transform-style: preserve-3d;
+    transition: .7s ease;
+    -webkit-box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.65);
+    -moz-box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.65);
+    box-shadow: 0px 10px 15px -5px rgba(0, 0, 0, 0.65);
+}
+
+
+/*color de la tarjeta n */
+
+#tarjeta1 {
+    background-color: #007BFF;
+}
+
+
+/*color de la tarjeta n */
+
+#tarjeta2 {
+    background-color: rgb(128, 169, 223);
+}
+
+
+/*color de la tarjeta n */
+
+#tarjeta3 {
+    background-color: #007BFF;
+}
+
+
+/*color de la tarjeta n */
+
+#tarjeta4 {
+    background-color: rgb(128, 169, 223);
+}
+
+
+/*color de la tarjeta n */
+
+#tarjeta5 {
+    background-color: #007BFF;
+}
+
+
+/*color de la tarjeta n */
+
+#tarjeta6 {
+    background-color: rgb(128, 169, 223);
+}
+
+
+/*color de la tarjeta n */
+
+#tarjeta7 {
+    background-color: #007BFF;
+}
+
+
+/*color de la tarjeta n */
+
+#tarjeta8 {
+    background-color: rgb(128, 169, 223);
+}
+
+
+/*color de la tarjeta n */
+
+#tarjeta9 {
+    background-color: #007BFF;
+}
+
+.adelante,
+.atras {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.adelante {
+    width: 100%;
+}
+
+.atras {
+    transform: rotateY(180deg);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    font-family: "open sans";
+}
+
+.tarjeta-wrap:hover .tarjeta {
+    transform: rotateY(180deg);
+}
+
+.card1 {
+    background-image: url(/IMG/alumnos/Alumno1-compressor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card2 {
+    background-image: url(/IMG/alumnos/Alumno2-compressor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card3 {
+    background-image: url(/IMG/alumnos/Alumno3-compressor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card4 {
+    background-image: url(/IMG/alumnos/Alumno4-compressor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card5 {
+    background-image: url(/IMG/alumnos/Alumno5-compressor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card6 {
+    background-image: url(/IMG/alumnos/Alumno6-compressor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card7 {
+    background-image: url(/IMG/alumnos/Alumno7-compressor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card8 {
+    background-image: url(/IMG/alumnos/Alumno8-compressor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card9 {
+    background-image: url(/IMG/alumnos/Alumno9-compressor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+footer {
+    background: #2c3e50;
+    width: 100%;
+}
+
+
+/* div principal del footer */
+
+#footer {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+
+#footer hr {
+    display: none;
+}
+
+
+/* div redes sociales footer*/
+
+#cursos {
+    display: flex;
+    flex-flow: column;
+    justify-content: start;
+    padding-left: 10px;
+}
+
+#redes-sociales {
+    display: flex;
+    flex-flow: column;
+    justify-content: start;
+    padding-left: 10px;
+}
+
+#footer-tecnologias {
+    width: 100%;
+    background: url(/IMG/fondo-programador.jpg)
+}
+
+#footer-tecnologias img {
+    width: 100%;
+}
+
+#div-footer-prog {
+    width: 100%;
+}
+
+#fot-contacto {
+    display: flex;
+    flex-flow: column;
+}
+
+.contacto {
+    text-decoration: none;
+    color: #fff;
+}
+
+#fot-redes {
+    display: flex;
+    flex-flow: column;
+    align-content: center;
+}
+
+.navegacion {
+    display: flex;
+    flex-flow: column;
+    font-size: 25px;
+}
+
+
+/* Móviles en vertical */
+
+@media (max-width: 480px) {
+    .wrap {
+        flex-flow: column;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    #footer {
+        flex-direction: column;
+        flex-flow: column;
+    }
+    .contact {
+        justify-content: center;
+    }
+    #fot-contacto {
+        padding-left: 10px;
+    }
+    #cursos a {
+        justify-content: flex-start;
+    }
+}

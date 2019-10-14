@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <title>Testimonios</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/css/flexboxgrid.css' %}">
+    <link rel="stylesheet" href="/CSS/testimonios.css">
+    <link rel="stylesheet" href="/CSS/social-bar.css">
+
+
+
+</head>
+
+<body>
+    <!-- fontawesome-->
+    <script src="https://kit.fontawesome.com/35796eb248.js"></script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!--Cuerpo con el Header-->
+
+    <div class="header" style="background: #2C3E50">
+        <div class="center-xs logo">
+
+            <img class="img-fluid" src="/IMG/index/logo.png" alt="logo">
+            <!-- <h1 id="nombre-pag">Programan<b>2</b></h1> -->
+
+        </div>
+
+        <div class="navegacion">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/HTML/index.html">
+                        <i class="fa fa-home" aria-hidden="true"> Home</i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/HTML/index.html#cursos-online">
+                        <i class="fa fa-comments" aria-hidden="true"> Cursos</i>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#footer">
+                        <i class="fa fa-envelope" aria-hidden="true"> Contactos</i>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/HTML/suscripcion.html">
+                        <i class="fa fa-user" aria-hidden="true"> Nosotros</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="container-fluid center-xs">
+
+        <div id="carouselFadeExampleIndicators" class="carousel col-xs-12 slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item center-xs">
+                    <img class="d-block w-100" src="/IMG/index/carousel1.png" data-src="holder.js/900x400?theme=social" alt="First slide">
+                </div>
+                <div class="carousel-item active center-xs">
+                    <img class="d-block w-100" src="/IMG/index/carousel2.png" data-src="holder.js/900x400?theme=industrial" alt="Second slide">
+                </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselFadeExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="carousel-control-next" href="#carouselFadeExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+    </div>
+
+
+    <!-- Contenedor -->
+    <div class="container-fluid">
+
+        <div class="wrap" id="wrap">
+            <!--El cuerpo de nuesta tarjeta,
+                dentro de ellas iran 2 secciones:
+                1ero:Imagen, 2do:Imagen Naranja con texto.-->
+            <!--Tenemos 3 elementos tarjetaWrap:-->
+            <div class="tarjeta-wrap ">
+                <div class="tarjeta" id="tarjeta1">
+                    <!--Al adelante le damos una clase a parte-->
+                    <div class="adelante card1">
+
+                    </div>
+                    <div class="atras">
+                        <p>Curso Online Javascript : El curso es bastante completo, con profesores de mucha experiencia y el material disponible en la pagina es de gran ayuda, en especial para repasar y rendir los exámenes. Danitza Ulloa - 17/08/2019
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tarjeta-wrap">
+                <div class="tarjeta" id="tarjeta2">
+                    <!--Al adelante le damos una clase a parte-->
+                    <div class="adelante card2">
+
+                    </div>
+                    <div class="atras">
+                        <p>Curso Online MySQL: Un curso interesante para entrar en el mundo del paradigma en objetos. Yanko Ortega - 21/08/2019 </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tarjeta-wrap">
+                <div class="tarjeta" id="tarjeta3">
+                    <!--Al adelante le damos una clase a parte-->
+                    <div class="adelante card3">
+
+                    </div>
+                    <div class="atras">
+                        <p>Curso Java Online: Gran curso para introducirse a la programación en general! Matías Canavide - 15/08/201</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tarjeta-wrap">
+                <div class="tarjeta" id="tarjeta4">
+                    <!--Al adelante le damos una clase a parte-->
+                    <div class="adelante card4">
+
+                    </div>
+                    <div class="atras">
+                        <p> Curso Online Html5 y Css3: Excelente curso, como todos, si quieres aprender a fondo sobre animaciones y mayores conceptos del maquetado, este curso es el ideal. Belen Guitierrez - 15/08/2019 </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tarjeta-wrap">
+                <div class="tarjeta" id="tarjeta5">
+                    <!--Al adelante le damos una clase a parte-->
+                    <div class="adelante card5">
+
+                    </div>
+                    <div class="atras">
+                        <p>Curso Online Javascript: Muy completo, en todas las clases hay un ejercicio practico eso esta bueno no es solo teórico. Virginia Fuentes - 08/08/2019 </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tarjeta-wrap">
+                <div class="tarjeta" id="tarjeta6">
+                    <!--Al adelante le damos una clase a parte-->
+                    <div class="adelante card6">
+
+                    </div>
+                    <div class="atras">
+                        <p>Curso Online Python: Recomendable el curso , muy buena onda los profesores Miguel Pérez - 11/07/2019
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tarjeta-wrap">
+                <div class="tarjeta" id="tarjeta7">
+                    <!--Al adelante le damos una clase a parte-->
+                    <div class="adelante card7">
+
+                    </div>
+                    <div class="atras">
+                        <p>Curso Online Raspberry: cumple con todo lo que promete Valentina Lizana- 21/06/2019</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tarjeta-wrap">
+                <div class="tarjeta" id="tarjeta8">
+                    <!--Al adelante le damos una clase a parte-->
+                    <div class="adelante card8">
+
+                    </div>
+                    <div class="atras">
+                        <p> Curso NodeJS: me dio las herramientas para poder encontrar trabajo - Rodrigo Fuentes - 21/06/2019 </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tarjeta-wrap">
+                <div class="tarjeta" id="tarjeta9">
+                    <!--Al adelante le damos una clase a parte-->
+                    <div class="adelante card9">
+
+                    </div>
+                    <div class="atras">
+                        <p> Curso NodeJS: me dio las herramientas para poder encontrar trabajo - Rodrigo Fuentes - 19/03/2019 </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <hr>
+    <div class="container center-xs" id="div-footer-prog">
+
+        <img id="footer-tecnologias" src="/IMG/index/footer-tecnologias.png " alt="lenguajes de programacion" class="img-fluid ">
+
+    </div>
+
+    <hr>
+
+
+    <footer>
+        <div id="footer">
+            <div class="nav" id="fot-contacto">
+                <h1 style="color:#fff" id="contacto">Contacto</h1>
+                <div class="contact">
+                    <div>
+                        <p class="contacto" style="font-size: 25px">Santiago</p>
+                        <p class="contacto">Alonso De Ovalle #1210</p>
+                        <p class="contacto">Numero de contacto: +569-94492114</p>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div>
+                        <p class="contacto" style="font-size: 25px">EEUU</p>
+                        <p class="contacto">Shelly Dr #2061</p>
+                        <p class="contacto"> Numero de Contacto: <i class="fab fa-phone-office"></i> +502 (412)8-1968 </p>
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="cursos">
+                <h1 style="color:#fff">Cursos</h1>
+                <a class="" href="#">Curso html <i class="fab fa-html5" aria-hidden="true"></i> </a>
+                <a class="" href="#">Curso CSS <i class="fab fa-css3" aria-hidden="true"></i></a>
+                <a class="" href="#">Curso Java <i class="fab fa-java"></i></a>
+                <a class="" href="#">Curso Python <i class="fab fa-python"></i></a>
+
+            </div>
+            <hr>
+
+
+            <div class="" id="redes-sociales">
+                <div>
+                    <h1 style="color:#fff">Redes Sociales</h1>
+                </div>
+
+                <div class="">
+                    <a href="https://www.facebook.com/Programan2-114805666567614/?modal=admin_todo_tour">
+                        <i class="fab fa-facebook" aria-hidden="true"></i> Facebook
+                    </a>
+
+                </div>
+
+                <div>
+                    <a href="https://www.instagram.com">
+                        <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
+                    </a>
+                </div>
+
+                <div>
+                    <a href="https://www.twitter.com">
+                        <i class="fab fa-twitter" aria-hidden="true"></i> Twitter
+                    </a>
+                </div>
+
+                <div>
+                    <a href="https://www.google.cl">
+                        <i class="fab fa-google" aria-hidden="true"></i> Google+
+                    </a>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+    </footer>
+
+
+
+    <!--Social-Bar de Redes Sociales -->
+    <div class="social-bar">
+        <a href="https://www.facebook.com/Programan2-114805666567614/?modal=admin_todo_tour" class="icon icon-facebook2" target="_blank">
+            <i class="fab fa-facebook-square" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://www.twitter.com" class="icon icon-twitter" target="_blank">
+            <i class="fab fa-twitter-square" aria-hidden="true"></i>
+        </a>
+
+        <a href="https://www.youtube.com" class="icon icon-youtube" target="_blank">
+            <i class="fab fa-youtube-square" aria-hidden="true"></i>
+        </a>
+
+    </div>
+
+</body>
+
+</html>

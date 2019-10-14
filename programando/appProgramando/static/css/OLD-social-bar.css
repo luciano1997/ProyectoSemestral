@@ -1,0 +1,76 @@
+/*Social-bar*/
+
+.social-bar {
+    position: fixed;
+    right: 0;
+    top: 35%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 100;
+}
+
+.icon {
+    color: white;
+    text-decoration: none;
+    padding: .7rem;
+    display: flex;
+    transition: all .5s;
+}
+
+.icon-facebook2 {
+    background: #2E406E;
+}
+
+.icon-twitter {
+    background: #339DC5;
+}
+
+
+/*
+.icon-youtube {
+    background: #E83028;
+    width: 99%;
+}
+*/
+
+.icon-youtube {
+    background: #E83028;
+}
+
+.icon-youtube:before {
+    background-color: red;
+    width: auto;
+}
+
+.icon-instagram {
+    background: #3F60A5;
+}
+
+.icon:first-child {
+    border-radius: 1rem 0 0 0;
+}
+
+.icon:last-child {
+    border-radius: 0 0 0 1rem;
+}
+
+
+/*pseudoclase hover al pasar el mouse
+se aplica las siguientes propiedades:*/
+
+.icon:hover {
+    padding-right: 3rem;
+    /*Border Radius En las esquinas superior 
+    e inferior izquieras*/
+    border-radius: 1rem 0 0 1rem;
+    /*Un box-shadow de una transparencia del 42%*/
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
+}
+
+@media (max-width: 480px) {
+    .social-bar {
+        display: none;
+    }
+}

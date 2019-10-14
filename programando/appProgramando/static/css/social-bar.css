@@ -1,0 +1,91 @@
+.social-bar {
+    /*Para hacer que quede fijo la pantalla*/
+    position: fixed;
+    /*En la parte derecha de la pantalla*/
+    right: 0;
+    /*Se posiciona casi en el centro*/
+    top: 35%;
+    /*El tamaña de la fuente a 1.5rem*/
+    font-size: 1.5rem;
+    display: flex;
+    /*El flujo por defecto row lo cambiamos a colum*/
+    flex-direction: column;
+    /*Se alinea hacía parte inferior*/
+    align-items: flex-end;
+    /*Le decimos a la barra social que se ubique encima del 
+     resto de los elementos de la página*/
+    z-index: 100;
+}
+
+
+/*Propiedades Generales para la clase icon*/
+
+
+/*Afectara a todos los elementos que conforman nuestra barra*/
+
+.icon {
+    color: white;
+    text-decoration: none;
+    padding: .7rem;
+    display: flex;
+    /*Nos proporcionar la forma de estimar los cambios en 
+    css en las propiedades css*/
+    /*Le pasaremos 2 parametros:
+    1.-A las que deseamos aplicar esas transicciones 
+    2.-El tiempo de duración de esa transición*/
+    transition: all .5s;
+}
+
+
+/*Barra Social, un background a cada barra*/
+
+.icon-facebook2 {
+    background: #2E406E;
+}
+
+.icon-twitter {
+    background: #339DC5;
+}
+
+.icon-youtube {
+    background: #E83028;
+}
+
+.icon-youtube:before {
+    background-color: red;
+    width: auto;
+}
+
+
+/*Para evitarse en cual va un border, 
+se trabajara con las pseudoclases
+first-child*/
+
+
+/*No importa si agregamos más redes sociales ,
+con estás propiedades la ultima siempre tendra un  borde redondeado*/
+
+.icon:first-child {
+    /*Un rem en la esquina superior izquierda*/
+    border-radius: 1rem 0 0 0;
+}
+
+.icon:last-child {
+    /*Un rem en la esquina inferior izquierda*/
+    border-radius: 0 0 0 1rem;
+}
+
+.icon:hover {
+    padding-right: 3rem;
+    /*Border Radius En las esquinas superior 
+    e inferior izquieras*/
+    border-radius: 1rem 0 0 1rem;
+    /*Un box-shadow de una transparencia del 42%*/
+    box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.42);
+}
+
+@media (max-width: 480px) {
+    .social-bar {
+        display: none;
+    }
+}

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- JQuery + Jquery validate -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+
+    <!--    los sig dos link son para el buscador-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="../css/flexboxgrid.css">
+    <link rel="stylesheet" href="../CSS/suscripcion.css">
+    <link rel="stylesheet" href="/CSS/social-bar.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/35796eb248.js"></script>
+    <title>Formulario</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="/CSS/index.css">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+
+    <div class="header" style="background: #2C3E50">
+        <div class="center-xs logo">
+
+            <img class="img-fluid" src="/IMG/index/logo.png" alt="logo">
+            <!-- <h1 id="nombre-pag">Programan<b>2</b></h1> -->
+
+        </div>
+
+        <div class="navegacion">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/HTML/index.html">
+                        <i class="fa fa-home"> Home</i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/HTML/index.html#cursos-online">
+                        <i class="fa fa-comments"> Cursos</i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/HTML/testimonios.html">
+                        <i class="fa fa-file-text"> Testimonios</i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#footer">
+                        <i class="fa fa-envelope"> Contactos</i>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#!">
+                        <i class="fa fa-user"> Nosotros</i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <p></p>
+    <div class="container center-xs">
+        <p style="font-weight: bold; font-size:2rem">Contactanos</p>
+    </div>
+    <div class="container  center-xs">
+        <form action="#" id="formulario1" class="form">
+            <table class="table">
+
+                <tbody>
+                    <tr class="row">
+                        <td class="col-sm-3"> <label> Nombre completo: </label></td>
+                        <td class="col-sm-7"> <input type="text" name="txtNombre" class="form-control" id="txtNombre" placeholder="Ingrese su nombre"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"> <label> Rut: </label></td>
+                        <td class="col-sm-7"> <input type="text" name="txtRut" class="form-control" id="txtRut" oninput="checkRut(this)" placeholder="Ingrese su rut"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Email: </label></td>
+                        <td class="col-sm-7"><input type="email" name="txtEmail" class="form-control" id="txtEmail" placeholder="Ingrese email"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"> <label> Teléfono: </label> </td>
+                        <td class="col-sm-7"> <input type="tel" class="form-control" name="txtTelefono" id="txtTelefono" onKeyPress="return soloNumeros(event)" placeholder="Ingrese Telefono"> </td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Región: </label></td>
+                        <td class="col-sm-7"> <select id="regiones" class="form-control">
+                        <option value=""> seleccione </option>
+                    </select>
+                        </td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Comunas: </label></td>
+                        <td class="col-sm-7"><select id="comunas" class="form-control"></select></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Fecha de nacimiento: </label></td>
+                        <td class="col-sm-7"><input type="date" class="form-control" name="bday" max="2000-12-31" min="1900-01-01"></td>
+                    </tr>
+                    <tr class="row">
+                        <td class="col-sm-3"><label> Tipo de vivienda: </label></td>
+                        <td class="col-sm-7"><select name="txtVivienda" id="Select" class="form-control">
+                            <option value=""> Seleccione tipo de vivienda... </option>
+                            <option value="1"> Casa con patio grande </option>
+                            <option value="2"> Casa con patio pequeño </option>
+                            <option value="3"> Casa sin patio </option>
+                            <option value="4"> Departamento </option> 
+                            </select>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <input type="submit" value="Enviar" id="validar" class="btn-primary btn-lg">
+        </form>
+    </div>
+
+    <!--Social-Bar de Redes Sociales -->
+    <div class="social-bar">
+        <a href="#" class="icon icon-facebook2">
+            <i class="fab fa-facebook-square"></i>
+        </a>
+
+        <a href="#" class="icon icon-twitter">
+            <i class="fab fa-twitter-square"></i>
+        </a>
+
+        <a href="#" class="icon icon-youtube">
+            <i class="fab fa-youtube-square"></i>
+        </a>
+
+    </div>
+
+
+
+    <hr>
+    <div class="container center-xs" id="div-footer-prog">
+
+        <img id="footer-tecnologias" src="/IMG/index/footer-tecnologias.png" alt="lenguajes de programacion" class="img-fluid">
+
+    </div>
+
+    <hr>
+
+
+
+    <footer>
+        <div id="footer">
+            <div class="nav" id="fot-contacto">
+                <h1 style="color:#fff" id="contacto">Contacto</h1>
+                <div class="contact">
+                    <div>
+                        <p class="contacto" style="font-size: 25px">Santiago</p>
+                        <p class="contacto">Alonso De Ovalle #1210</p>
+                        <p class="contacto">Numero de contacto: +569-94492114</p>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div>
+                        <p class="contacto" style="font-size: 25px">EEUU</p>
+                        <p class="contacto">Shelly Dr #2061</p>
+                        <p class="contacto"> Numero de Contacto: <i class="fab fa-phone-office "></i> +502 (412)8-1968 </p>
+
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div id="cursos">
+                <h1 style="color:#fff">Cursos</h1>
+                <a href="#">Curso html <i class="fab fa-html5"></i> </a>
+                <a href="#">Curso CSS <i class="fab fa-css3"></i></a>
+                <a href="#">Curso Java <i class="fab fa-java"></i></a>
+                <a href="#">Curso Python <i class="fab fa-python "></i></a>
+
+            </div>
+            <hr>
+
+
+            <div class=" " id="redes-sociales">
+                <div>
+                    <h1 style="color:#fff">Redes Sociales</h1>
+                </div>
+
+                <div class=" ">
+                    <a href="https://www.facebook.com">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+
+                </div>
+
+                <div>
+                    <a href="https://www.instagram.com">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </div>
+
+                <div>
+                    <a href="https://www.twitter.com">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                </div>
+
+                <div>
+                    <a href="https://www.google.cl">
+                        <i class="fab fa-google"></i> Google+
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="../JS/regiones.js">
+    </script>
+    <script src="../JS/validarut.js">
+    </script>
+    <script src="../JS/validador.js">
+    </script>
+    <script src="../JS/sololetras.js">
+    </script>
+    <script src="../JS/solonumeros.js">
+    </script>
+
+    <script>
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+
+</body>
+
+</html>

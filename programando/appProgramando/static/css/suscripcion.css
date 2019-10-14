@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+#cabeza {
+    display: flex;
+    flex-flow: row;
+    background: RED;
+    justify-content: space-between;
+}
+
+#navegador {
+    align-content: center;
+}
+
+.formulario {
+    background: #e4f2f0;
+    justify-content: center;
+}
+
+#buscador {
+    margin-top: 40 px;
+    align-items: center;
+}
+
+table label {
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    #cabeza,
+    #navegador {
+        flex-flow: column;
+    }
+    #navegador {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    a {
+        color: black;
+    }
+}
+
+@media (min-width: 1200px) {
+    #formulario-inscripcion {
+        justify-content: center;
+    }
+    #formulario-suscripcion {
+        justify-content: center;
+    }
+}
