@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Listar Usuarios</title>
 </head>
 <body>
-    <h1>template</h1>
+    <h1>Usuarios Registrados</h1>
     <ul>
         {% for u in usuarios %}
         <li>
            {{u.nombreCompleto}}, {{u.rut}}, {{u.email}}, {{u.telefono}}, {{u.region}}, {{u.comuna}}, {{u.fechaNacimiento}}, {{u.tipoVivienda}} 
+            <a href="/editarUsuario/{{ u.id }}">Editar</a>
+            <a href="/borrarUsuario/{{ u.id }}"
+            Onclick="return confirm('¿esta seguro de borrar?');"
+            >Borrar</a>
         </li>
         {% endfor %}
     </ul>
