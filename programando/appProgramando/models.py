@@ -30,4 +30,4 @@ class Alumno(models.Model):
     fecha_matricula = models.DateField()
     activo = models.BooleanField() #Revisar
     def __str__(self):
-        return self.usuario
+        return self
