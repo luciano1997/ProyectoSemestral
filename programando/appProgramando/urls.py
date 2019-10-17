@@ -2,13 +2,21 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('listarUsuarios', views.listarUsuarios),
+    
     path('', views.index),
     path('testimonios', views.testimonios),
     path('suscripcion', views.suscripcion),
-    path('borrarUsuario/<int:usuarioId>', views.borrarUsuario),
-    path('editarUsuario/<int:usuarioId>', views.editarUsuario),
-    path('agregarUsuario', views.crearUsuario),
-    path('listarUsuariosFull', views.listarUsuarioFull),
+    #----- usuario -----
+    path('agregarUsuario', views.crearUsuario), #create
+    path('borrarUsuario/<int:usuarioId>', views.borrarUsuario), #delete
+    path('editarUsuario/<int:usuarioId>', views.editarUsuario), #edit
+    path('listarUsuariosFull', views.listarUsuarioFull), #readFull
+    path('listarUsuarios', views.listarUsuarios), #read
+    # ----- Curso ----
+    path('agregarCurso', views.crearCurso), #create
+    path('borrarCurso/<int:cursoId>', views.borrarCurso), #delete
+    path('editarCurso/<int:cursoId>', views.editarCurso), #edit
+    path('listarCursosFull', views.listarCursosFull), #readFull
+    path('listarCursos', views.listarCursos), #read
    
 ]

@@ -1,0 +1,24 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Listar Usuarios full</title>
+
+</head>
+<body>
+    <h1>Listar Usuarios full</h1>
+    <ul>
+        {% for c in cursos %}
+        <li>
+            {{c.codigo}}, {{c.nombre}}, {{c.valor}}
+        </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>

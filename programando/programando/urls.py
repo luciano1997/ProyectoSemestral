@@ -27,4 +27,10 @@ urlpatterns = [
     path('borrarUsuario/<int:usuarioId>', include('appProgramando.urls')),
     path('agregarUsuario', include('appProgramando.urls')),
     path('listarUsuariosFull', include('appProgramando.urls')),
+    # ---- CURSOS ------
+    path('agregarCurso',include('appProgramando.urls')), #create
+    path('borrarCurso/<int:cursoId>',include('appProgramando.urls')), #delete
+    path('editarCurso/<int:cursoId>',include('appProgramando.urls')), #edit
+    path('listarCursosFull', include('appProgramando.urls')), #readFull
+    path('listarCursos', include('appProgramando.urls')), #read
 ]

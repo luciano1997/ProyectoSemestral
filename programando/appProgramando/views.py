@@ -3,9 +3,10 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 # Create your views here.
-from .models import Usuario, Curso, Alumno
-#from mantenedor.app.forms import CarreraForm
-from .forms import UsuarioForm
+from .models import Usuario,Curso,Alumno
+#from .models import Usuario, Curso, Alumno
+
+from .forms import UsuarioForm, CursoForm
 
 
 
@@ -25,7 +26,7 @@ def suscripcion(request):
     return render(request, 'appProgramando/suscripcion.html', {})
 
 # todo lo nuevo CRUD
-
+# --- USUARIO ---
 def crearUsuario(request):
     if request.method == "POST":
         form = UsuarioForm(request.POST)
@@ -35,7 +36,7 @@ def crearUsuario(request):
             return redirect('/agregarUsuario')
     else:
         form = UsuarioForm()
-        return render(request, 'appProgramando/agregarUsuario.html',
+        return render(request, 'appProgramando/usuarioCrud/agregarUsuario.html',
                       {'form': form})
 
 def listarUsuarios(request):
@@ -43,13 +44,14 @@ def listarUsuarios(request):
     usuario = Usuario.objects.all()
     # renderizamos la coleccion en el template
     return render(request,
-                "appProgramando/listarUsuarios.html", {'usuarios': usuario}) 
+                "appProgramando/usuarioCrud/listarUsuarios.html", {'usuarios': usuario}) 
+
 def listarUsuarioFull(request):
     #creamos una coleccion la cual carga todos los registros
     usuario = Usuario.objects.all()
     #renderizamos la coleccion en el template
     return render(request, 
-            "appProgramando/listarUsuariosFull.html", {'usuarios': usuario})
+            "appProgramando/usuarioCrud/listarUsuariosFull.html", {'usuarios': usuario})
 
 
 def editarUsuario(request, usuarioId):
@@ -64,7 +66,7 @@ def editarUsuario(request, usuarioId):
             instancia= form.save(commit=False)
             #grabamos
             instancia.save()
-    return render(request, "appProgramando/editarUsuario.html", {'form':form})   
+    return render(request, "appProgramando/usuarioCrud/editarUsuario.html", {'form':form})   
 
 
 def borrarUsuario(request, usuarioId):
@@ -72,31 +74,51 @@ def borrarUsuario(request, usuarioId):
     instacia.delete()
     return redirect('/')
 
+#--- CURSOS ---
  
+def crearCurso(request):
+    if request.method == "POST":
+        form = CursoForm(request.POST)
+        if form.is_valid():
+            model_instance = form.save(commit=False)
+            model_instance.save()
+            return redirect('/agregarCurso')
+    else:
+        form = CursoForm()
+        return render(request, 'appProgramando/cursoCrud/agregarCurso.html',
+                      {'form': form})
 
-#class agregarUsuario(CreateView):  #Carrera_Create
-#    model = Usuario
-#    form_class = UsuarioForm
-#    templates_name = 'appProgramando/inscripcion_carrera.html'
-#    success_url = reverse_lazy('carrera_crear')
+def listarCursos(request):
+    # creamos una coleccion la cual carga todos los registros
+    curso = Curso.objects.all()
+    # renderizamos la coleccion en el template
+    return render(request,
+                "appProgramando/cursoCrud/listarCursos.html", {'cursos': curso}) 
 
-def editar_carrera(request, carrera_id):
-    instancia= Carrera.objects.get(id=carrera_id)
-    form= CarreraForm(instance=instancia)
+def listarCursosFull(request):
+    #creamos una coleccion la cual carga todos los registros
+    curso = Curso.objects.all()
+    #renderizamos la coleccion en el template
+    return render(request, 
+            "appProgramando/cursoCrud/listarCursosFull.html", {'cursos': curso})
+
+
+def editarCurso(request, cursoId):
+    instancia= Curso.objects.get(id=cursoId)
+    form= CursoForm(instance=instancia)
     if request.method=="POST":
         #Actualizamos el Formulario con los datos del objeto
-        form=CarreraForm(request.POST, instance=instancia)
-        #si el formulario es valido...
+        form=CursoForm(request.POST, instance=instancia)
+        #si el form es valido
         if form.is_valid():
             #guardamos el formulario pero sin confirmar aun
             instancia= form.save(commit=False)
-            #grabamos!!
+            #grabamos
             instancia.save()
-    return render(request,"app/editar_carrera.html",{'form':form})
+    return render(request, "appProgramando/cursoCrud/editarCurso.html", {'form':form})   
 
-def borrar_carrera(request, carrera_id):
-    instacia= Carrera.objects.get(id=carrera_id)
+
+def borrarCurso(request, cursoId):
+    instacia = Curso.objects.get(id=cursoId)
     instacia.delete()
     return redirect('/')
-
-

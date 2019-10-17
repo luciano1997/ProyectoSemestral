@@ -1,0 +1,25 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Listar Usuarios</title>
+</head>
+<body>
+    <h1>Usuarios Registrados</h1>
+    <ul>
+        {% for c in cursos %}
+        <li>
+            {{c.codigo}}, {{c.nombre}}, {{c.valor}}
+            <a href="/editarCurso/{{ c.id }}">Editar</a>
+            <a href="/borrarCurso/{{ c.id }}"
+            Onclick="return confirm('¿esta seguro de borrar?');"
+            >Borrar</a>
+        </li>
+        {% endfor %}
+    </ul>
+    
+</body>
+</html>

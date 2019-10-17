@@ -16,3 +16,9 @@ class UsuarioForm(forms.ModelForm):
                     'comuna': forms.TextInput(attrs={'class':'form-comtrol'}),
                     'fechaNacimiento': forms.TextInput(attrs={'class':'form-comtrol'}),
                     'tipoVivienda': forms.TextInput(attrs={'class':'form-comtrol'}), }
+
+class CursoForm(forms.ModelForm):
+    class Meta:
+        model = Curso
+        fields = ['codigo','nombre','valor']
+        labels = {'codigo':'codigo','nombre':'nombre','valor':'valor'}
