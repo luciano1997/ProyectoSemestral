@@ -26,8 +26,9 @@ class Curso(models.Model):
 
 class Alumno(models.Model):
     usuario = models.ForeignKey(Usuario, null=False, blank=False, on_delete=models.CASCADE)
-    curso = models.ForeignKey(Curso, null=False, blank=False, on_delete=models.CASCADE)
+    curso = models.ForeignKey(Curso, null=False, blank=False, on_delete=models.CASCADE) # aqui hay que arreglar
     fecha_matricula = models.DateField()
     activo = models.BooleanField() #Revisar
+    
     def __str__(self):
-        return self
+        return self.usuario.nombreCompleto+","+self.curso.nombre
