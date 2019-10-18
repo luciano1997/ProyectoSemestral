@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('appProgramando.urls')),
     path('testimonios', include('appProgramando.urls')),
     path('suscripcion', include('appProgramando.urls')),
+    # ---- Usuarios ----
     path('listarUsuarios', include('appProgramando.urls')),
     path('editarUsuario/<int:usuarioId>', include('appProgramando.urls')),
     path('borrarUsuario/<int:usuarioId>', include('appProgramando.urls')),
@@ -33,4 +34,10 @@ urlpatterns = [
     path('editarCurso/<int:cursoId>',include('appProgramando.urls')), #edit
     path('listarCursosFull', include('appProgramando.urls')), #readFull
     path('listarCursos', include('appProgramando.urls')), #read
+    # ---- Alumnos ----
+    path('agregarAlumno',include('appProgramando.urls')), #create
+    path('borrarAlumno/<int:alumnoId>',include('appProgramando.urls')), #delete
+    path('editarAlumno/<int:alumnoId>',include('appProgramando.urls')), #edit
+    path('listarAlumnosFull', include('appProgramando.urls')), #readFull
+    path('listarAlumnos', include('appProgramando.urls')), #read
 ]

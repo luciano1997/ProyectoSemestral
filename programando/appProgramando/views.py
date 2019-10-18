@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from .models import Usuario,Curso,Alumno
 #from .models import Usuario, Curso, Alumno
 
-from .forms import UsuarioForm, CursoForm
+from .forms import UsuarioForm, CursoForm, AlumnoForm
 
 
 
@@ -122,3 +122,54 @@ def borrarCurso(request, cursoId):
     instacia = Curso.objects.get(id=cursoId)
     instacia.delete()
     return redirect('/')
+
+
+# --- ALUMNOS ----
+
+def crearAlumno(request):
+    if request.method == "POST":
+        form = AlumnoForm(request.POST)
+        if form.is_valid():
+            model_instance = form.save(commit=False)
+            model_instance.save()
+            return redirect('/agregarAlumno')
+    else:
+        form = AlumnoForm()
+        return render(request, 'appProgramando/alumnoCrud/agregarAlumno.html',
+                      {'form': form})
+
+def listarAlumnos(request):
+    # creamos una coleccion la cual carga todos los registros
+    alumno = Alumno.objects.all()
+    # renderizamos la coleccion en el template
+    return render(request,
+                "appProgramando/alumnoCrud/listarAlumnos.html", {'alumnos': alumno}) 
+
+def listarAlumnosFull(request):
+    #creamos una coleccion la cual carga todos los registros
+    alumno = Alumno.objects.all()
+    #renderizamos la coleccion en el template
+    return render(request, 
+            "appProgramando/alumnoCrud/listarAlumnosFull.html", {'alumnos': alumno})
+
+
+def editarAlumno(request, alumnoId):
+    instancia= Alumno.objects.get(id=alumnoId)
+    form= AlumnoForm(instance=instancia)
+    if request.method=="POST":
+        #Actualizamos el Formulario con los datos del objeto
+        form=AlumnoForm(request.POST, instance=instancia)
+        #si el form es valido
+        if form.is_valid():
+            #guardamos el formulario pero sin confirmar aun
+            instancia= form.save(commit=False)
+            #grabamos
+            instancia.save()
+    return render(request, "appProgramando/alumnoCrud/editarAlumno.html", {'form':form})   
+
+
+def borrarAlumno(request, alumnoId):
+    instacia = Alumno.objects.get(id=alumnoId)
+    instacia.delete()
+    return redirect('/')
+

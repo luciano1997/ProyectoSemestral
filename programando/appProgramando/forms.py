@@ -22,3 +22,9 @@ class CursoForm(forms.ModelForm):
         model = Curso
         fields = ['codigo','nombre','valor']
         labels = {'codigo':'codigo','nombre':'nombre','valor':'valor'}
+
+class AlumnoForm(forms.ModelForm):
+    class Meta:
+        model = Alumno
+        fields = ['usuario','curso','fecha_matricula', 'activo']
+        labels = {'usuario.nombreCompleto:usuario.nombreCompleto','curso.nombre:curso.nombre','fechaMatricula:fechaMatricula','activo:activo'}
