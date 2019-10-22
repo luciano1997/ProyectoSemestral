@@ -173,3 +173,30 @@ def borrarAlumno(request, alumnoId):
     instacia.delete()
     return redirect('/')
 
+
+def cursosList(request):
+    Curso = Curso.objects.all()
+    contexto = {'curso: curso'}
+    return render(request, 'cursosCrud/listarCursos.html', centexto)
+
+
+
+
+
+
+
+
+# revisar esto
+def listarCursosPorTipo(request, tipoCurso):
+    #creamos una coleccion la cual carga todos los registros
+    cursos = Cursos.objects.all()
+    tipoCurso == ''
+    if request.POST.get('tipoCurso'):
+        tipoCruso = str(request.POST.get('tipoCurso'))
+        cursos = cursos.filter(tipoCurso__gte=tipoCurso)
+
+    return render(request, "cursoCrud/listarCursos.html", {'cursos': cursos, 'tipoCurso':tipoCurso})
+
+    
+
+

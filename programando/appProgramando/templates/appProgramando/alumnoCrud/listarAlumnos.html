@@ -1,3 +1,4 @@
+{% extends 'appProgramando/base.html' %}
 {% load staticfiles %}
 
 <!DOCTYPE html>
@@ -72,6 +73,12 @@
         </li>
         {% endfor %}
     </ul>
+    <form action="/" method="POST">
+        Edad mínima: 
+        <input type="number" name="edad" value="0" style="width:40px" / >
+        <input type="submit" value="Filtrar">
+        {% csrf_token %}
+    </form>
     
     <footer>
         <div id="footer">

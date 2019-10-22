@@ -34,6 +34,9 @@ urlpatterns = [
     path('editarCurso/<int:cursoId>',include('appProgramando.urls')), #edit
     path('listarCursosFull', include('appProgramando.urls')), #readFull
     path('listarCursos', include('appProgramando.urls')), #read
+
+    path('listarCursosPorEstado/<int:tipoCurso>', include('appProgramando.urls')), #read
+
     # ---- Alumnos ----
     path('agregarAlumno',include('appProgramando.urls')), #create
     path('borrarAlumno/<int:alumnoId>',include('appProgramando.urls')), #delete

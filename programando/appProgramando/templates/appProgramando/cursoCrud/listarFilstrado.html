@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Listar Alumno</h1>
+    <ul>
+        {% for c in alumnos %}
+        <li>
+            {{c.usuario.nombreCompleto}}, {{c.curso.nombre}}, {{c.fecha_matricula}},  Activo:{{c.activo}}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <form action="/" method="POST">
+        Tipo de Curso: 
+        <input type="stringformat" name="edad" value="0" style="width:40px" / >
+        <input type="submit" value="Filtrar">
+        {% csrf_token %}
+    </form>
+    
+    
+</body>
+</html>

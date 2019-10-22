@@ -18,6 +18,9 @@ urlpatterns = [
     path('editarCurso/<int:cursoId>', views.editarCurso), #edit
     path('listarCursosFull', views.listarCursosFull), #readFull
     path('listarCursos', views.listarCursos), #read
+
+    path('cursosList', views.cursosList), #read
+
     # ---- Alumno ---- 
     path('agregarAlumno', views.crearAlumno), #create
     path('borrarAlumno/<int:alumnoId>', views.borrarAlumno), #delete
