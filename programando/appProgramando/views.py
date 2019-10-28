@@ -3,11 +3,12 @@ from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 # Create your views here.
-from .models import Usuario,Curso,Alumno
+from appProgramando.models import Usuario,Curso,Alumno
 #from .models import Usuario, Curso, Alumno
 
-from .forms import UsuarioForm, CursoForm, AlumnoForm
+from appProgramando.forms import UsuarioForm, CursoForm, AlumnoForm
 
+from .filters import CursoFilter
 
 
 def usuarios_list(request):
@@ -90,10 +91,10 @@ def crearCurso(request):
 
 def listarCursos(request):
     # creamos una coleccion la cual carga todos los registros
-    curso = Curso.objects.all()
+    curso = Curso.objects.all().filter(tipoCurso='Desarrollo Web')
     # renderizamos la coleccion en el template
     return render(request,
-                "appProgramando/cursoCrud/listarCursos.html", {'cursos': curso}) 
+            "appProgramando/cursoCrud/listarCursos.html", {'cursos': curso}) 
 
 def listarCursosFull(request):
     #creamos una coleccion la cual carga todos los registros
@@ -142,6 +143,7 @@ def listarAlumnos(request):
     # creamos una coleccion la cual carga todos los registros
     alumno = Alumno.objects.all()
     # renderizamos la coleccion en el template
+
     return render(request,
                 "appProgramando/alumnoCrud/listarAlumnos.html", {'alumnos': alumno}) 
 
@@ -174,29 +176,30 @@ def borrarAlumno(request, alumnoId):
     return redirect('/')
 
 
-def cursosList(request):
-    Curso = Curso.objects.all()
-    contexto = {'curso: curso'}
-    return render(request, 'cursosCrud/listarCursos.html', centexto)
-
-
-
-
-
-
-
-
-# revisar esto
-def listarCursosPorTipo(request, tipoCurso):
-    #creamos una coleccion la cual carga todos los registros
-    cursos = Cursos.objects.all()
-    tipoCurso == ''
-    if request.POST.get('tipoCurso'):
-        tipoCruso = str(request.POST.get('tipoCurso'))
-        cursos = cursos.filter(tipoCurso__gte=tipoCurso)
-
-    return render(request, "cursoCrud/listarCursos.html", {'cursos': cursos, 'tipoCurso':tipoCurso})
+def listarCursosProgramacion(request):
+    # creamos una coleccion la cual carga todos los registros
+    curso = Curso.objects.all().filter(tipoCurso='Programacion')
+    # renderizamos la coleccion en el template
+    return render(request,
+            "appProgramando/cursoCrud/listarCursos.html", {'cursos': curso}) 
 
     
 
+def listarCursosDesarrolloWeb(request):
+    # creamos una coleccion la cual carga todos los registros
+    curso = Curso.objects.all().filter(tipoCurso='Desarrollo Web')
+    # renderizamos la coleccion en el template
+    return render(request,
+            "appProgramando/cursoCrud/listarCursos.html", {'cursos': curso}) 
 
+
+
+
+
+#### django filter
+
+
+def search(request):
+    curso_list = Curso.objects.all()
+    curso_filter = CursoFilter(request.GET, queryset=curso_list)
+    return render(request, 'appProgramando/cursoCrud/listarCursos.html', {'filter': curso_filter})

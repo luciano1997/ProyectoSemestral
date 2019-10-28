@@ -23,21 +23,31 @@
     {% block content %}
 
 
-    <h1>Listar Cursos full</h1>
+
+    <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+    </form>
+    <ul>
+    {% for curso in filter.qs %}
+    <li>{{ curso.tipoCurso }} - {{ curso.nombre }}</li>
+  {% endfor %}
+  </ul>
+
+
+    <h1>Listar Cursos</h1>
+        
+        
     <ul>
         {% for c in cursos %}
         <li>
-            {{c.codigo}}, {{c.nombre}}, {{tipoCurso}}, {{c.valor}}
+            {{c.codigo}}, {{c.nombre}}, {{c.tipoCurso}}, {{c.valor}}  
+            
         </li>
         {% endfor %}
     </ul>
 
-    <form action="/" method="POST">
-        Tipo de Curso: 
-        <input type="text" name="tipoCurso" style="width:400px" / >
-        <input type="submit" value="Filtrar">
-        {% csrf_token %}
-    </form>
+    
 
     {% endblock %}
     

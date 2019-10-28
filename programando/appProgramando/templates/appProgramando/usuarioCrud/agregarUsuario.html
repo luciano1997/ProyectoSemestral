@@ -21,9 +21,13 @@
 
     <h1>Inscripción Usuario</h1>
     <form method="POST">
-        {% csrf_token %}
-        {{form}}
-    <button type="submit">Grabar</button>        
+        <div class="container flex-column">
+            {% csrf_token %}
+            {{form}}
+            <hr>
+            <button class="center-xs" type="submit">Grabar</button> 
+        </div>
+    
     </form>
 <!--    Fin Codigo python  -->
 

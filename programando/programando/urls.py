@@ -33,7 +33,7 @@ urlpatterns = [
     path('borrarCurso/<int:cursoId>',include('appProgramando.urls')), #delete
     path('editarCurso/<int:cursoId>',include('appProgramando.urls')), #edit
     path('listarCursosFull', include('appProgramando.urls')), #readFull
-    path('listarCursos', include('appProgramando.urls')), #read
+    path('listarCursos', include('appProgramando.urls'), name='search'), #read
 
     path('listarCursosPorEstado/<int:tipoCurso>', include('appProgramando.urls')), #read
 

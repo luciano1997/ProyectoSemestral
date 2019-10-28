@@ -7,21 +7,22 @@ class UsuarioForm(forms.ModelForm):
         model = Usuario
         fields = ['nombreCompleto', 'rut', 'email', 'telefono', 'region', 'comuna', 'fechaNacimiento', 'tipoVivienda', ]
 
-        labels =   {'nombreCompleto':'nombreCompleto', 'rut':'rut', 'email':'email', 'telefono':'telefono', 'region':'region', 'comuna':'comuna', 'fechaNacimiento':'fechaNacimiento', 'tipoVivienda':'tipoVivienda' }
+        labels =   {'nombreCompleto': 'Nombre Completo', 'rut': 'Rut', 'email': 'Email', 'telefono': 'Telefono', 'region': 'Region', 'comuna': 'Comuna', 'fechaNacimiento': 'Fecha De Nacimiento', 'tipoVivienda': 'Tipo de Vivienda' }
         widgets =  {'nombreCompleto': forms.TextInput(attrs={'class': 'form-control'}),
-                    'rut': forms.TextInput(attrs={'class': 'form-control'}),
-                    'email': forms.TextInput(attrs={'class': 'form-control'}),
-                    'telefono': forms.TextInput(attrs={'class':'form-comtrol'}),
-                    'region': forms.TextInput(attrs={'class':'form-comtrol'}),
-                    'comuna': forms.TextInput(attrs={'class':'form-comtrol'}),
-                    'fechaNacimiento': forms.TextInput(attrs={'class':'form-comtrol'}),
-                    'tipoVivienda': forms.TextInput(attrs={'class':'form-comtrol'}), }
+                    'rut: ': forms.TextInput(attrs={'class': 'form-control'}),
+                    'email: ': forms.TextInput(attrs={'class': 'form-control'}),
+                    'telefono ': forms.TextInput(attrs={'class':'form-comtrol'}),
+                    'region ': forms.TextInput(attrs={'class':'form-comtrol'}),
+                    'comuna ': forms.TextInput(attrs={'class':'form-comtrol'}),
+                    'fechaNacimiento ': forms.TextInput(attrs={'class':'form-comtrol'}),
+                    'tipoVivienda ': forms.TextInput(attrs={'class':'form-comtrol'}), }
 
 class CursoForm(forms.ModelForm):
     class Meta:
         model = Curso
-        fields = ['codigo','nombre','valor']
-        labels = {'codigo':'codigo','nombre':'nombre','valor':'valor'}
+        fields = ['codigo','nombre','tipoCurso','valor']
+        labels = {'codigo':'codigo','nombre':'nombre','tipoCurso':'tipo de Curso','valor':'valor'}
+
 
 class AlumnoForm(forms.ModelForm):
     class Meta:
