@@ -21,14 +21,16 @@
 
 
     {% block content %}
-    <h1>Listar Alumno</h1>
+    <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+    </form>
     <ul>
-        {% for c in alumnos %}
-        <li>
-            {{c.usuario.nombreCompleto}}, {{c.curso.nombre}}, {{c.fecha_matricula}},  Activo:{{c.activo}}
-        </li>
-        {% endfor %}
+    {% for alumno in filter.qs %}
+    <li>{{ alumno.usuario.nombreCompleto }} - {{ alumno.curso.nombre }} - {{alumno.fecha_matricula}} - {{alumno.activo}} </li>
+    {% endfor %}
     </ul>
+
     
     {% endblock %}
 </body>

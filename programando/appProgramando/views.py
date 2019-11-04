@@ -6,9 +6,9 @@ from django.urls import reverse_lazy
 from appProgramando.models import Usuario,Curso,Alumno
 #from .models import Usuario, Curso, Alumno
 
-from appProgramando.forms import UsuarioForm, CursoForm, AlumnoForm
+from appProgramando.forms import UsuarioForm, CursoForm, AlumnoForm, UserCreationForm
 
-from .filters import CursoFilter
+from .filters import CursoFilter, AlumnoFilter
 
 
 def usuarios_list(request):
@@ -30,7 +30,7 @@ def suscripcion(request):
 # --- USUARIO ---
 def crearUsuario(request):
     if request.method == "POST":
-        form = UsuarioForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             model_instance = form.save(commit=False)
             model_instance.save()
@@ -203,3 +203,11 @@ def search(request):
     curso_list = Curso.objects.all()
     curso_filter = CursoFilter(request.GET, queryset=curso_list)
     return render(request, 'appProgramando/cursoCrud/listarCursos.html', {'filter': curso_filter})
+
+def searchAlumno(request):
+    alumno_list = Alumno.objects.all()
+    alumno_filter = AlumnoFilter(request.GET, queryset=alumno_list)
+    return render(request, 'appProgramando/alumnoCrud/listarAlumnos.html', {'filter': alumno_filter})    
+
+
+

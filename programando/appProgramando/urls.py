@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     
-    path('', views.index),
+    path('', views.index, name='index'),
     path('testimonios', views.testimonios),
     path('suscripcion', views.suscripcion),
     #----- usuario -----
@@ -26,5 +26,8 @@ urlpatterns = [
     path('borrarAlumno/<int:alumnoId>', views.borrarAlumno), #delete
     path('editarAlumno/<int:alumnoId>', views.editarAlumno), #edit
     path('listarAlumnosFull', views.listarAlumnosFull), #readFull
-    path('listarAlumnos', views.listarAlumnos), #read
+    path('listarAlumnos', views.searchAlumno, name='searchAlumno'), #read
+
+    
+    
 ]

@@ -1,13 +1,14 @@
 from django import forms
 from .models import Curso, Alumno, Usuario
-
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 class UsuarioForm(forms.ModelForm):
     class Meta:
         model = Usuario
-        fields = ['nombreCompleto', 'rut', 'email', 'telefono', 'region', 'comuna', 'fechaNacimiento', 'tipoVivienda', ]
+        fields = ['nombreCompleto', 'rut', 'email', 'telefono', 'region', 'comuna', 'fechaNacimiento', 'tipoVivienda', 'password' ]
 
-        labels =   {'nombreCompleto': 'Nombre Completo', 'rut': 'Rut', 'email': 'Email', 'telefono': 'Telefono', 'region': 'Region', 'comuna': 'Comuna', 'fechaNacimiento': 'Fecha De Nacimiento', 'tipoVivienda': 'Tipo de Vivienda' }
+        labels =   {'nombreCompleto': 'Nombre Completo', 'rut': 'Rut', 'email': 'Email', 'telefono': 'Telefono', 'region': 'Region', 'comuna': 'Comuna', 'fechaNacimiento': 'Fecha De Nacimiento', 'tipoVivienda': 'Tipo de Vivienda', 'password':'password' }
         widgets =  {'nombreCompleto': forms.TextInput(attrs={'class': 'form-control'}),
                     'rut: ': forms.TextInput(attrs={'class': 'form-control'}),
                     'email: ': forms.TextInput(attrs={'class': 'form-control'}),
@@ -15,7 +16,8 @@ class UsuarioForm(forms.ModelForm):
                     'region ': forms.TextInput(attrs={'class':'form-comtrol'}),
                     'comuna ': forms.TextInput(attrs={'class':'form-comtrol'}),
                     'fechaNacimiento ': forms.TextInput(attrs={'class':'form-comtrol'}),
-                    'tipoVivienda ': forms.TextInput(attrs={'class':'form-comtrol'}), }
+                    'tipoVivienda ': forms.TextInput(attrs={'class':'form-comtrol'}), 
+                    'password': forms.PasswordInput(attrs={'class':'form-control'}),}
 
 class CursoForm(forms.ModelForm):
     class Meta:
@@ -29,3 +31,17 @@ class AlumnoForm(forms.ModelForm):
         model = Alumno
         fields = ['usuario','curso','fecha_matricula', 'activo']
         labels = {'usuario.nombreCompleto:usuario.nombreCompleto','curso.nombre:curso.nombre','fechaMatricula:fechaMatricula','activo:activo'}
+
+
+class RegistroForm(UserCreationForm):
+
+    class Meta:
+        model = User
+        fields = [
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password1',
+            'password2',
+        ]

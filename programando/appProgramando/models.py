@@ -33,4 +33,4 @@ class Alumno(models.Model):
     activo = models.BooleanField() #Revisar
     
     def __str__(self):
-        return self.usuario.nombreCompleto+","+self.curso.nombre
+        return self.usuario.nombreCompleto+", "+self.curso.nombre
