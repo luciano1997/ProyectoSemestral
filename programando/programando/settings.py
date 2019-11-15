@@ -25,7 +25,9 @@ SECRET_KEY = '*ud&)dzb5mxtje_b04n#fuo)@fx9=ry=t^3&7tw95(dkp9@s72'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ #'*'
+    
+]
 
 
 # Application definition
@@ -122,3 +124,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 LOGIN_REDIRECT_URL = 'index'
+
+#URL mediante la cual accedera a las imagenes que ya este subidas
+MEDIA_URL='/media/'
+MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+
+#la ruta en donde quedan almacenados las imagenes    

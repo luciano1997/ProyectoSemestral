@@ -19,11 +19,12 @@ from django.contrib.auth.forms import UserCreationForm
 #                    'tipoVivienda ': forms.TextInput(attrs={'class':'form-comtrol'}), 
 #                    'password': forms.PasswordInput(attrs={'class':'form-control'}),}
 #
+
 class CursoForm(forms.ModelForm):
     class Meta:
         model = Curso
-        fields = ['codigo','nombre','tipoCurso','valor']
-        labels = {'codigo':'codigo','nombre':'nombre','tipoCurso':'tipo de Curso','valor':'valor'}
+        fields = ['codigo','nombre','tipoCurso','valor','imagen']
+        labels = {'codigo':'codigo','nombre':'nombre','tipoCurso':'tipo de Curso','valor':'valor','imagen':'imagen'}
 
 
 class AlumnoForm(forms.ModelForm):

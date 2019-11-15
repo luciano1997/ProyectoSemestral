@@ -7,7 +7,7 @@
 <!--    Codigo python  -->
 
     <h1>Inscribir Usuario</h1>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <div class="container flex-column">
             {% csrf_token %}
             {{form}}

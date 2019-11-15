@@ -22,6 +22,8 @@ class Curso(models.Model):
     nombre=models.CharField(max_length=50)
     tipoCurso=models.CharField(max_length=50)
     valor=models.IntegerField()
+    imagen = models.ImageField(verbose_name="imagen", upload_to="cursosPrograman2", null=True, blank=True)
+
     def __str__(self):
         return self.nombre
     
@@ -33,4 +35,4 @@ class Alumno(models.Model):
     activo = models.BooleanField() #Revisar
     
     def __str__(self):
-        return self.user.username+", "+self.curso.email
+        return self.usuario.username +", "+self.usuario.email

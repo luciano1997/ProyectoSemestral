@@ -27,7 +27,7 @@
     </form>
     <ul>
     {% for alumno in filter.qs %}
-    <li>{{ alumno.usuario.nombreCompleto }} - {{ alumno.curso.nombre }} - {{alumno.fecha_matricula}} - {{alumno.activo}} </li>
+    <li>{{ alumno.usuario.username }} - {{ alumno.curso.nombre }} - {{alumno.fecha_matricula}} - {{alumno.activo}} </li>
     {% endfor %}
     </ul>
 

@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 from appProgramando.models import Curso,Alumno #Usuario,
 #from .models import Usuario, Curso, Alumno
@@ -35,7 +36,7 @@ class RegistroUsuario(CreateView):
     model = User
     template_name = "appProgramando/usuarioCrud/agregarUsuario.html"
     form_class = UsuarioForm
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy('index')
 
 
 def listarUsuarios(request):
@@ -45,6 +46,7 @@ def listarUsuarios(request):
     return render(request,
                 "appProgramando/usuarioCrud/listarUsuarios.html", {'usuarios': usuario}) 
 
+@login_required
 def listarUsuarioFull(request):
     #creamos una coleccion la cual carga todos los registros
     usuario = User.objects.all()
@@ -69,24 +71,46 @@ def editarUsuario(request, usuarioId):
 
 
 def borrarUsuario(request, usuarioId):
-    instacia = Usuario.objects.get(id=usuarioId)
+    instacia = User.objects.get(id=usuarioId)
     instacia.delete()
     return redirect('/')
 
 #--- CURSOS ---
  
- 
+class CreateCurso(CreateView): # new
+    model = Curso
+    form_class = CursoForm
+    template_name = "appProgramando/usuarioCrud/agregarUsuario.html"
+    success_url = reverse_lazy('index')
+
 def crearCurso(request):
-    if request.method == "POST":
-        form = CursoForm(request.POST)
-        if form.is_valid():
-            model_instance = form.save(commit=False)
-            model_instance.save()
-            return redirect('/agregarCurso')
+
+    
+    form = CursoForm(request.POST)
+    curso = Curso()
+    curso.imagen = request.FILES.get('txtImagen')
+    if form.is_valid():
+        model_instance = form.save(commit=False)
+        model_instance.save()
+        return redirect('/agregarCurso')
     else:
         form = CursoForm()
         return render(request, 'appProgramando/cursoCrud/agregarCurso.html',
                       {'form': form})
+
+
+ 
+#def crearCurso(request):
+#    if request.method == "POST":
+#        form = CursoForm(request.POST)
+#        if form.is_valid():
+#            model_instance = form.save(commit=False)
+#            model_instance.save()
+#            return redirect('/agregarCurso')
+#    else:
+#        form = CursoForm()
+#        return render(request, 'appProgramando/cursoCrud/agregarCurso.html',
+#                      {'form': form})
 
 def listarCursos(request):
     # creamos una coleccion la cual carga todos los registros

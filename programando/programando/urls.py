@@ -43,7 +43,7 @@ urlpatterns = [
     path('editarAlumno/<int:alumnoId>',include('appProgramando.urls')), #edit
     path('listarAlumnosFull', include('appProgramando.urls')), #readFull
     path('listarAlumnos', include('appProgramando.urls'), name='searchAlumno'), #read
-    path('login', include('appProgramando.urls'), name='login'), #read
+   
 
     path('login/',auth_views.LoginView.as_view(template_name='appProgramando/login.html'), name='login'), 
     path('logout/',auth_views.LogoutView.as_view(template_name='appProgramando/login.html'), name='logout')
