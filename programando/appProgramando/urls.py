@@ -1,13 +1,13 @@
 from django.urls import path, include
 from . import views
-
+from .views import RegistroUsuario
 urlpatterns = [
     
-    path('', views.index, name='index'),
+    path('', views.index, name='index',),
     path('testimonios', views.testimonios),
     path('suscripcion', views.suscripcion),
     #----- usuario -----
-    path('agregarUsuario', views.crearUsuario), #create
+    path('agregarUsuario', views.RegistroUsuario.as_view()), #create
     path('borrarUsuario/<int:usuarioId>', views.borrarUsuario), #delete
     path('editarUsuario/<int:usuarioId>', views.editarUsuario), #edit
     path('listarUsuariosFull', views.listarUsuarioFull), #readFull
@@ -22,7 +22,7 @@ urlpatterns = [
     #path('cursosList', views.cursosList), #read
 
     # ---- Alumno ---- 
-    path('agregarAlumno', views.crearAlumno), #create
+    path('agregarAlumno', views.RegistroAlumno.as_view()), #create
     path('borrarAlumno/<int:alumnoId>', views.borrarAlumno), #delete
     path('editarAlumno/<int:alumnoId>', views.editarAlumno), #edit
     path('listarAlumnosFull', views.listarAlumnosFull), #readFull

@@ -2,11 +2,13 @@ from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponse
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
-from appProgramando.models import Usuario,Curso,Alumno
+from appProgramando.models import Curso,Alumno #Usuario,
 #from .models import Usuario, Curso, Alumno
 
-from appProgramando.forms import UsuarioForm, CursoForm, AlumnoForm, UserCreationForm
+from appProgramando.forms import UsuarioForm, CursoForm, AlumnoForm
 
 from .filters import CursoFilter, AlumnoFilter
 
@@ -28,28 +30,24 @@ def suscripcion(request):
 
 # todo lo nuevo CRUD
 # --- USUARIO ---
-def crearUsuario(request):
-    if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            model_instance = form.save(commit=False)
-            model_instance.save()
-            return redirect('/agregarUsuario')
-    else:
-        form = UsuarioForm()
-        return render(request, 'appProgramando/usuarioCrud/agregarUsuario.html',
-                      {'form': form})
+
+class RegistroUsuario(CreateView):
+    model = User
+    template_name = "appProgramando/usuarioCrud/agregarUsuario.html"
+    form_class = UsuarioForm
+    success_url = reverse_lazy("index")
+
 
 def listarUsuarios(request):
     # creamos una coleccion la cual carga todos los registros
-    usuario = Usuario.objects.all()
+    usuario = User.objects.all()
     # renderizamos la coleccion en el template
     return render(request,
                 "appProgramando/usuarioCrud/listarUsuarios.html", {'usuarios': usuario}) 
 
 def listarUsuarioFull(request):
     #creamos una coleccion la cual carga todos los registros
-    usuario = Usuario.objects.all()
+    usuario = User.objects.all()
     #renderizamos la coleccion en el template
     return render(request, 
             "appProgramando/usuarioCrud/listarUsuariosFull.html", {'usuarios': usuario})
@@ -76,6 +74,7 @@ def borrarUsuario(request, usuarioId):
     return redirect('/')
 
 #--- CURSOS ---
+ 
  
 def crearCurso(request):
     if request.method == "POST":
@@ -126,6 +125,14 @@ def borrarCurso(request, cursoId):
 
 
 # --- ALUMNOS ----
+
+
+
+class RegistroAlumno(CreateView):
+    model = Alumno
+    template_name = "appProgramando/alumnoCrud/agregarAlumno.html"
+    form_class = AlumnoForm
+    success_url = reverse_lazy("index")
 
 def crearAlumno(request):
     if request.method == "POST":
