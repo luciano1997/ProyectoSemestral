@@ -123,7 +123,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-LOGIN_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = reverse_lazy('index')
+
+LOGOUT_REDIRECT_URL = 'index'
 
 #URL mediante la cual accedera a las imagenes que ya este subidas
 MEDIA_URL='/media/'

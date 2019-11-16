@@ -1,9 +1,13 @@
 from django.urls import path, include
 from . import views
-from .views import RegistroUsuario
+
+
+
 urlpatterns = [
     
-    path('', views.index, name='index',),
+    path('', views.index, name='index'),
+    path('index', views.index, name='index'),
+    
     path('testimonios', views.testimonios),
     path('suscripcion', views.suscripcion),
     #----- usuario -----
@@ -11,7 +15,7 @@ urlpatterns = [
     path('borrarUsuario/<int:usuarioId>', views.borrarUsuario), #delete
     path('editarUsuario/<int:usuarioId>', views.editarUsuario), #edit
     path('listarUsuariosFull', views.listarUsuarioFull), #readFull
-    path('listarUsuarios', views.listarUsuarios), #read
+    path('listarUsuarios', views.listarUsuarios, name=''), #read
     # ----- Curso ----
     path('agregarCurso', views.CreateCurso.as_view()), #create
     path('borrarCurso/<int:cursoId>', views.borrarCurso), #delete

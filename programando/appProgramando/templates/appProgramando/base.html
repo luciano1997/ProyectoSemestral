@@ -27,18 +27,23 @@
     {% block header %}
    
    <div class="header" style="background: #2C3E50">
-        <div class="center-xs logo">
+        <div class="center-xs d-flex flex-flow logo">
             <a href="validaciones.html">
             
                 <img class="img-fluid" alt="logo" src="{% static '/img/index/logo.png' %}">
                 <!-- <h1 id="nombre-pag">Programan<b>2</b></h1> -->
             </a>
+            <ul> 
+                <a class="nav-link active" style="color:white"> <p> {{user.username}} </p>  </a>
+                
+            </ul>
+            
         </div>
 
         <div class="navegacion">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" href="/HTML/index.html">
+                    <a class="nav-link active" href="index">
                         <i class="fa fa-home" aria-hidden="true"> Home</i>
                     </a>
                 </li>
@@ -48,7 +53,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/HTML/testimonios.html#wrap">
+                    <a class="nav-link" href="testimonios">
                         <i class="fa fa-file-text" aria-hidden="true"> Testimonios</i>
                     </a>
                 </li>
@@ -59,11 +64,12 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/HTML/suscripcion.html">
+                    <a class="nav-link" href="login">
                         <i class="fa fa-user" aria-hidden="true"> Nosotros</i>
                     </a>
                 </li>
             </ul>
+
         </div>
 
     </div>

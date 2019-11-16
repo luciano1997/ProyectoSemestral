@@ -20,7 +20,8 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('appProgramando.urls')),
+    path('index', include('appProgramando.urls'), name='index'),
+    path('', include('appProgramando.urls'), name='index'),
     path('testimonios', include('appProgramando.urls')),
     path('suscripcion', include('appProgramando.urls')),
     # ---- Usuarios ----
@@ -45,6 +46,8 @@ urlpatterns = [
     path('listarAlumnos', include('appProgramando.urls'), name='searchAlumno'), #read
    
 
+    
+    path('accounts/login/',auth_views.LoginView.as_view(template_name='appProgramando/login.html'), name='login'), 
     path('login/',auth_views.LoginView.as_view(template_name='appProgramando/login.html'), name='login'), 
-    path('logout/',auth_views.LogoutView.as_view(template_name='appProgramando/login.html'), name='logout')
+    path('logout/',auth_views.LogoutView.as_view(template_name='appProgramando/logout.html'), name='logout')
 ]

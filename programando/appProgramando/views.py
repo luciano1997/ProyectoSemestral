@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 # Create your views here.
-from appProgramando.models import Curso,Alumno #Usuario,
+from .models import Curso, Alumno #Usuario,
 #from .models import Usuario, Curso, Alumno
 
 from appProgramando.forms import UsuarioForm, CursoForm, AlumnoForm
@@ -83,34 +83,6 @@ class CreateCurso(CreateView): # new
     template_name = "appProgramando/usuarioCrud/agregarUsuario.html"
     success_url = reverse_lazy('index')
 
-def crearCurso(request):
-
-    
-    form = CursoForm(request.POST)
-    curso = Curso()
-    curso.imagen = request.FILES.get('txtImagen')
-    if form.is_valid():
-        model_instance = form.save(commit=False)
-        model_instance.save()
-        return redirect('/agregarCurso')
-    else:
-        form = CursoForm()
-        return render(request, 'appProgramando/cursoCrud/agregarCurso.html',
-                      {'form': form})
-
-
- 
-#def crearCurso(request):
-#    if request.method == "POST":
-#        form = CursoForm(request.POST)
-#        if form.is_valid():
-#            model_instance = form.save(commit=False)
-#            model_instance.save()
-#            return redirect('/agregarCurso')
-#    else:
-#        form = CursoForm()
-#        return render(request, 'appProgramando/cursoCrud/agregarCurso.html',
-#                      {'form': form})
 
 def listarCursos(request):
     # creamos una coleccion la cual carga todos los registros
@@ -118,7 +90,8 @@ def listarCursos(request):
     # renderizamos la coleccion en el template
     return render(request,
             "appProgramando/cursoCrud/listarCursos.html", {'cursos': curso}) 
-
+            
+@login_required
 def listarCursosFull(request):
     #creamos una coleccion la cual carga todos los registros
     curso = Curso.objects.all()
@@ -126,7 +99,7 @@ def listarCursosFull(request):
     return render(request, 
             "appProgramando/cursoCrud/listarCursosFull.html", {'cursos': curso})
 
-
+@login_required
 def editarCurso(request, cursoId):
     instancia= Curso.objects.get(id=cursoId)
     form= CursoForm(instance=instancia)
@@ -141,7 +114,7 @@ def editarCurso(request, cursoId):
             instancia.save()
     return render(request, "appProgramando/cursoCrud/editarCurso.html", {'form':form})   
 
-
+@login_required
 def borrarCurso(request, cursoId):
     instacia = Curso.objects.get(id=cursoId)
     instacia.delete()
@@ -158,18 +131,7 @@ class RegistroAlumno(CreateView):
     form_class = AlumnoForm
     success_url = reverse_lazy("index")
 
-def crearAlumno(request):
-    if request.method == "POST":
-        form = AlumnoForm(request.POST)
-        if form.is_valid():
-            model_instance = form.save(commit=False)
-            model_instance.save()
-            return redirect('/agregarAlumno')
-    else:
-        form = AlumnoForm()
-        return render(request, 'appProgramando/alumnoCrud/agregarAlumno.html',
-                      {'form': form})
-
+@login_required
 def listarAlumnos(request):
     # creamos una coleccion la cual carga todos los registros
     alumno = Alumno.objects.all()
@@ -178,6 +140,7 @@ def listarAlumnos(request):
     return render(request,
                 "appProgramando/alumnoCrud/listarAlumnos.html", {'alumnos': alumno}) 
 
+@login_required
 def listarAlumnosFull(request):
     #creamos una coleccion la cual carga todos los registros
     alumno = Alumno.objects.all()
@@ -185,7 +148,7 @@ def listarAlumnosFull(request):
     return render(request, 
             "appProgramando/alumnoCrud/listarAlumnosFull.html", {'alumnos': alumno})
 
-
+@login_required
 def editarAlumno(request, alumnoId):
     instancia= Alumno.objects.get(id=alumnoId)
     form= AlumnoForm(instance=instancia)
@@ -200,29 +163,11 @@ def editarAlumno(request, alumnoId):
             instancia.save()
     return render(request, "appProgramando/alumnoCrud/editarAlumno.html", {'form':form})   
 
-
+@login_required
 def borrarAlumno(request, alumnoId):
     instacia = Alumno.objects.get(id=alumnoId)
     instacia.delete()
     return redirect('/')
-
-
-def listarCursosProgramacion(request):
-    # creamos una coleccion la cual carga todos los registros
-    curso = Curso.objects.all().filter(tipoCurso='Programacion')
-    # renderizamos la coleccion en el template
-    return render(request,
-            "appProgramando/cursoCrud/listarCursos.html", {'cursos': curso}) 
-
-    
-
-def listarCursosDesarrolloWeb(request):
-    # creamos una coleccion la cual carga todos los registros
-    curso = Curso.objects.all().filter(tipoCurso='Desarrollo Web')
-    # renderizamos la coleccion en el template
-    return render(request,
-            "appProgramando/cursoCrud/listarCursos.html", {'cursos': curso}) 
-
 
 
 
