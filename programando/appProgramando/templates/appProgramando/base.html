@@ -33,9 +33,40 @@
                 <img class="img-fluid" alt="logo" src="{% static '/img/index/logo.png' %}">
                 <!-- <h1 id="nombre-pag">Programan<b>2</b></h1> -->
             </a>
-            <ul> 
-                <a class="nav-link active" style="color:white"> <p> {{user.username}} </p>  </a>
-                
+            <ul class="nav navbar_nav"> 
+            {% if user.is_superuser %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Herramientas
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'agregarAlumno' %}">Agregar</a>
+                        <a class="dropdown-item" href="{% url 'listarUsuarios' %}">Listar Usuarios</a>
+                        <a class="dropdown-item" href="{% url 'searchAlumno' %}">Listar Alumnos</a>
+                        <a class="dropdown-item" href="{% url 'listarUsuariosFull' %}">Listar Usuarios C/Crud</a>
+                        <a class="dropdown-item" href="{% url 'listarAlumnosFull' %}">Listar Alumnos C/Crud</a>
+                    </div>
+                </li>
+            {% endif %}
+            <ul class="nav navbar_nav"> 
+
+                    {% if user.is_authenticated %}
+                    <span class="navbar-text">
+                        <a href="#" class="nav_link"> Bienvenido, {{ user.username }} ! </a>
+                    </span>
+                    <li class="nav-item">
+                        <a href="{% url 'logout' %}" class="nav-link">Cerrar Sesion</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'agregarAlumno' %}" class="nav-link">Registro</a>
+                    </li>
+                    <li class="nav-item">
+                            <a href="{% url 'login' %}" class="nav-link">Login</a>
+                        </li>
+                    {% endif %}
+
             </ul>
             
         </div>
@@ -48,7 +79,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#cursos-online">
+                    <a class="nav-link" href="listarCursos">
                         <i class="fa fa-comments" aria-hidden="true"> Cursos</i>
                     </a>
                 </li>

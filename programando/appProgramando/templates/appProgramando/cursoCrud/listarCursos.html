@@ -30,6 +30,7 @@
     </form>
     <ul>
     {% for curso in filter.qs %}
+    
     {% if curso.imagen %}
 
     <li>{{ curso.tipoCurso }} - {{ curso.nombre }}, <img width="200" heigth="200" src="{{curso.imagen.url}}"> </li>

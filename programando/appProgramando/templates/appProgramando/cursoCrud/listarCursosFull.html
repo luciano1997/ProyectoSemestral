@@ -22,7 +22,7 @@
     <ul>
         {% for c in cursos %}
         <li>
-            {{c.codigo}}, {{c.nombre}}, {{c.tipoCurso}}, {{c.valor}}
+            {{c.codigo}}, {{c.nombre}}, {{c.tipoCurso}}, {{c.valor}},  <img width="200" heigth="200" src="{{c.imagen.url}}">
             <a href="/editarCurso/{{ c.id }}">Editar</a>
             <a href="/borrarCurso/{{ c.id }}"
             Onclick="return confirm('¿esta seguro de borrar?');"
