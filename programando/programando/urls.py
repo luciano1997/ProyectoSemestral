@@ -43,9 +43,10 @@ urlpatterns = [
     path('borrarAlumno/<int:alumnoId>',include('appProgramando.urls')), #delete
     path('editarAlumno/<int:alumnoId>',include('appProgramando.urls')), #edit
     path('listarAlumnosFull', include('appProgramando.urls')), #readFull
+    #path('listarAlumnosFilter', include('appProgramando.urls'), name="listarAlumnosFilter"),
     path('listarAlumnos', include('appProgramando.urls'), name='searchAlumno'), #read
    
-
+#
     
     path('accounts/login/',auth_views.LoginView.as_view(template_name='appProgramando/login.html'), name='login'), 
     

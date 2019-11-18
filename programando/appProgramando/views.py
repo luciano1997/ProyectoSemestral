@@ -174,12 +174,12 @@ def borrarAlumno(request, alumnoId):
 
 #### django filter
 
-
+@login_required
 def search(request):
     curso_list = Curso.objects.all()
     curso_filter = CursoFilter(request.GET, queryset=curso_list)
     return render(request, 'appProgramando/cursoCrud/listarCursos.html', {'filter': curso_filter})
-
+@login_required
 def searchAlumno(request):
     alumno_list = Alumno.objects.all()
     alumno_filter = AlumnoFilter(request.GET, queryset=alumno_list)

@@ -31,6 +31,7 @@ urlpatterns = [
     path('borrarAlumno/<int:alumnoId>', views.borrarAlumno), #delete
     path('editarAlumno/<int:alumnoId>', views.editarAlumno), #edit
     path('listarAlumnosFull', views.listarAlumnosFull, name="listarAlumnosFull"), #readFull
+    #path('listarAlumnosFilter', views.listarAlumnos, name='listarAlumnosFilter'), #read
     path('listarAlumnos', views.searchAlumno, name='searchAlumno'), #read
 
     
