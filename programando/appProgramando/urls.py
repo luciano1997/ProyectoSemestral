@@ -21,7 +21,7 @@ urlpatterns = [
     path('agregarCurso', views.CreateCurso.as_view()), #create
     path('borrarCurso/<int:cursoId>', views.borrarCurso), #delete
     path('editarCurso/<int:cursoId>', views.editarCurso), #edit
-    path('listarCursosFull', views.listarCursosFull), #readFull
+    path('listarCursosFull', views.listarCursosFull, name="listarCursosFull"), #readFull
     path('listarCursos', views.search, name='search'), #read
 
     #path('cursosList', views.cursosList), #read

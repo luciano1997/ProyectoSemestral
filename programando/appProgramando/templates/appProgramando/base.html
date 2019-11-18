@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
+{% block head %}
 <head>
     <title>Programan2</title>
     <!-- Required meta tags -->
@@ -19,7 +20,7 @@
     <script src="https://kit.fontawesome.com/35796eb248.js"></script>
     <title> {% block title %} duoc {% endblock %}</title>
 </head>
-
+{% endblock %}
 <body>
     <header>
 
@@ -46,6 +47,7 @@
                         <a class="dropdown-item" href="{% url 'searchAlumno' %}">Listar Alumnos</a>
                         <a class="dropdown-item" href="{% url 'listarUsuariosFull' %}">Listar Usuarios C/Crud</a>
                         <a class="dropdown-item" href="{% url 'listarAlumnosFull' %}">Listar Alumnos C/Crud</a>
+                        <a class="dropdown-item" href="{% url 'listarCursosFull' %}">Listar Cursos C/Crud</a>
                     </div>
                 </li>
             {% endif %}
