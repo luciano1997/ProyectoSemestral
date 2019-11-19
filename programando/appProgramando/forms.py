@@ -2,7 +2,7 @@ from django import forms
 from .models import Curso, Alumno#, Usuario
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-
+from rest_framework import routers, serializers, viewsets
 #class UsuarioForm1(forms.ModelForm):
 #    class Meta:
 #        model = Usuario
@@ -32,6 +32,16 @@ class AlumnoForm(forms.ModelForm):
         model = Alumno
         fields = ['usuario','curso','fecha_matricula', 'activo']
         labels = {'usuario.nombreCompleto:usuario.nombreCompleto','curso.nombre:curso.nombre','fechaMatricula:fechaMatricula','activo:activo'}
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ['url', 'username', 'email', 'is_staff']
+
+class CursoSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Curso
+        fields = ['codigo','nombre','tipoCurso','valor','imagen']
 
 
 class UsuarioForm(UserCreationForm):

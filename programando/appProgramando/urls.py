@@ -2,10 +2,18 @@ from django.urls import path, include
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import routers, serializers, viewsets
+from .views import UserViewSet, UserSerializer, CursoSerializer, CursosViewSet
 
-
+router = routers.DefaultRouter()
+#router.register('users', UserViewSet)
+router.register('cursos', CursosViewSet)
 urlpatterns = [
-    
+    # api rest
+    path('', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls'), name="rest_framework"),
+
+
     path('', views.index, name='index'),
     #path('index', views.index, name='index'),
     
@@ -27,12 +35,12 @@ urlpatterns = [
     #path('cursosList', views.cursosList), #read
 
     # ---- Alumno ---- 
-    path('agregarAlumno', views.RegistroAlumno.as_view(), name='agregarAlumno'), #create
-    path('borrarAlumno/<int:alumnoId>', views.borrarAlumno), #delete
-    path('editarAlumno/<int:alumnoId>', views.editarAlumno), #edit
-    path('listarAlumnosFull', views.listarAlumnosFull, name="listarAlumnosFull"), #readFull
+    #path('agregarAlumno', views.RegistroAlumno.as_view(), name='agregarAlumno'), #create
+    #path('borrarAlumno/<int:alumnoId>', views.borrarAlumno), #delete
+    #path('editarAlumno/<int:alumnoId>', views.editarAlumno), #edit
+    #path('listarAlumnosFull', views.listarAlumnosFull, name="listarAlumnosFull"), #readFull
     #path('listarAlumnosFilter', views.listarAlumnos, name='listarAlumnosFilter'), #read
-    path('listarAlumnos', views.searchAlumno, name='searchAlumno'), #read
+    #path('listarAlumnos', views.searchAlumno, name='searchAlumno'), #read
 
     
     

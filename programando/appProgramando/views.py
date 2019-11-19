@@ -5,11 +5,12 @@ from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from rest_framework import routers, serializers, viewsets
 # Create your views here.
 from .models import Curso, Alumno #Usuario,
 #from .models import Usuario, Curso, Alumno
 
-from appProgramando.forms import UsuarioForm, CursoForm, AlumnoForm
+from appProgramando.forms import UsuarioForm, CursoForm, AlumnoForm, UserSerializer, CursoSerializer
 
 from .filters import CursoFilter, AlumnoFilter
 
@@ -186,4 +187,15 @@ def searchAlumno(request):
     return render(request, 'appProgramando/alumnoCrud/listarAlumnos.html', {'filter': alumno_filter})    
 
 
+# api rest
+
+
+# ViewSets define the view behavior.
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class CursosViewSet(viewsets.ModelViewSet):
+    queryset = Curso.objects.all()
+    serializer_class = CursoSerializer
 
