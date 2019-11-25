@@ -6,11 +6,11 @@ from rest_framework import routers, serializers, viewsets
 from .views import UserViewSet, UserSerializer, CursoSerializer, CursosViewSet
 
 router = routers.DefaultRouter()
-#router.register('users', UserViewSet)
+router.register('users', UserViewSet)
 router.register('cursos', CursosViewSet)
 urlpatterns = [
     # api rest
-    path('', include(router.urls)),
+    path('API', include(router.urls)),
     path('api-auth/', include('rest_framework.urls'), name="rest_framework"),
 
 
@@ -25,6 +25,7 @@ urlpatterns = [
     path('editarUsuario/<int:usuarioId>', views.editarUsuario), #edit
     path('listarUsuariosFull', views.listarUsuarioFull, name="listarUsuariosFull"), #readFull
     path('listarUsuarios', views.listarUsuarios, name='listarUsuarios'), #read
+    
     # ----- Curso ----
     path('agregarCurso', views.CreateCurso.as_view()), #create
     path('borrarCurso/<int:cursoId>', views.borrarCurso), #delete
@@ -35,12 +36,12 @@ urlpatterns = [
     #path('cursosList', views.cursosList), #read
 
     # ---- Alumno ---- 
-    #path('agregarAlumno', views.RegistroAlumno.as_view(), name='agregarAlumno'), #create
-    #path('borrarAlumno/<int:alumnoId>', views.borrarAlumno), #delete
-    #path('editarAlumno/<int:alumnoId>', views.editarAlumno), #edit
-    #path('listarAlumnosFull', views.listarAlumnosFull, name="listarAlumnosFull"), #readFull
-    #path('listarAlumnosFilter', views.listarAlumnos, name='listarAlumnosFilter'), #read
-    #path('listarAlumnos', views.searchAlumno, name='searchAlumno'), #read
+    path('agregarAlumno', views.RegistroAlumno.as_view(), name='agregarAlumno'), #create
+    path('borrarAlumno/<int:alumnoId>', views.borrarAlumno), #delete
+    path('editarAlumno/<int:alumnoId>', views.editarAlumno), #edit
+    path('listarAlumnosFull', views.listarAlumnosFull, name="listarAlumnosFull"), #readFull
+    path('listarAlumnosFilter', views.listarAlumnos, name='listarAlumnosFilter'), #read
+    path('listarAlumnos', views.searchAlumno, name='searchAlumno'), #read
 
     
     
